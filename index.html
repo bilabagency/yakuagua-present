@@ -14,19 +14,18 @@
     <style>
         /* --- 1. VARIABLES DE MARCA --- */
         :root {
-            --bg-dark: #161517;        
+            --bg-dark: #161517;       
             --bg-card: rgba(44, 44, 49, 0.9); 
-            --text-light: #ECECF3;      
-            --text-cream: #FDFAF0;      
-            --accent-gold: #DFD6B5;    
+            --text-light: #ECECF3;    
+            --text-cream: #FDFAF0;    
+            --accent-gold: #DFD6B5;   
             --accent-violet: #5241B0; 
             --accent-magenta: #BC65DE;
-            --alert-red: #BE6E74;      
+            --alert-red: #BE6E74;     
             --neutral-grey: #838389;
 
             --grad-main: linear-gradient(135deg, #5241B0 0%, #BC65DE 100%);
-            --water-blue: rgba(96, 165, 250, 0.8);
-            --success-green: #50fa7b;
+            --grad-gold: linear-gradient(135deg, #DFD6B5 0%, #EFE7C7 100%);
         }
 
         /* --- 2. RESET & ESTRUCTURA --- */
@@ -82,9 +81,8 @@
             transition: opacity 0.5s;
             opacity: 0; 
         }
-        /* TAMAÑOS LOGOS */
         .logo-bi-header { height: 50px; width: auto; }
-        .logo-yaku-header { height: 90px; width: auto; } 
+        .logo-yaku-header { height: 90px; width: auto; }
         
         /* --- 5. PRE-PORTADA (INTRO) --- */
         #intro-screen {
@@ -161,45 +159,28 @@
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 
-        /* --- DASHBOARD MOCKUP --- */
+        /* MOCKUP DASHBOARD */
         .dashboard-mockup {
-            background: #0f0f11;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 12px;
-            padding: 0;
+            background: rgba(22, 21, 23, 0.95);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
             position: relative;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            overflow: hidden;
-            font-family: 'Inter', sans-serif;
-            display: flex;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-        .dash-sidebar { width: 60px; background: rgba(255,255,255,0.03); border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; align-items: center; padding-top: 20px; gap: 20px; }
-        .dash-icon { width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 14px; }
-        .dash-icon.active { background: var(--accent-violet); color: white; }
-        .dash-content { flex: 1; padding: 20px; }
-        .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: none; padding-bottom: 0; }
-        .user-profile { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 5px 15px; border-radius: 30px; }
-        .user-dot { width: 8px; height: 8px; background: var(--success-green); border-radius: 50%; }
-        .dash-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .dash-card { 
-            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 15px; border-radius: 12px; position: relative;
-        }
-        .dash-card.highlight { border: 1px solid var(--accent-violet); background: linear-gradient(145deg, rgba(82, 65, 176, 0.2) 0%, rgba(0,0,0,0) 100%); }
-        .d-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px; }
-        .d-value { font-size: 26px; font-weight: 700; color: white; }
-        .d-sub { font-size: 10px; color: var(--success-green); display: flex; align-items: center; gap: 3px; margin-top: 5px; }
-        .dash-chart-area {
-            background: rgba(0,0,0,0.2); border-radius: 12px; padding: 15px; height: 140px; display: flex; align-items: flex-end; gap: 8px; position: relative; border: 1px solid rgba(255,255,255,0.05);
-        }
-        .d-bar { flex: 1; background: #333; border-radius: 3px 3px 0 0; opacity: 0.6; transition: height 1s; }
-        .d-bar.active { background: var(--accent-gold); opacity: 1; box-shadow: 0 0 10px rgba(223, 214, 181, 0.3); }
-        .activity-list { margin-top: 15px; }
-        .activity-item { display: flex; justify-content: space-between; font-size: 11px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: #ccc; }
-        .activity-item:last-child { border: none; }
-        .tag-sale { background: rgba(80, 250, 123, 0.2); color: var(--success-green); padding: 2px 6px; border-radius: 4px; font-weight: bold; }
-        .tag-lead { background: rgba(96, 165, 250, 0.2); color: var(--water-blue); padding: 2px 6px; border-radius: 4px; }
+        .dash-header { display: flex; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .dash-status { font-size: 12px; color: #50fa7b; display: flex; align-items: center; gap: 5px; }
+        .pulsating-circle { width: 8px; height: 8px; background: #50fa7b; border-radius: 50%; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(80, 250, 123, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(80, 250, 123, 0); } 100% { box-shadow: 0 0 0 0 rgba(80, 250, 123, 0); } }
+        
+        .dash-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .dash-metric { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; }
+        .metric-title { font-size: 12px; color: var(--text-light); opacity: 0.7; }
+        .metric-value { font-size: 24px; font-weight: 700; color: #fff; margin-top: 5px; }
+        
+        .dash-chart { height: 100px; width: 100%; display: flex; align-items: flex-end; gap: 5px; }
+        .chart-bar { flex: 1; background: var(--accent-violet); opacity: 0.5; border-radius: 2px 2px 0 0; }
+        .chart-bar:nth-child(even) { background: var(--accent-magenta); opacity: 0.7; }
         
         /* TABLAS */
         table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
@@ -247,82 +228,40 @@
         .delay-3 { animation-delay: 0.3s; }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-        /* NUEVA ANIMACIÓN PARA TARJETAS (Diapositiva 9) */
-        @keyframes cardPop {
-            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .card-anim { opacity: 0; animation: cardPop 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-        .ca-delay-1 { animation-delay: 0.3s; }
-        .ca-delay-2 { animation-delay: 0.6s; }
-
-        /* ANIMACIONES ESPECÍFICAS PORTADA */
+        /* ANIMACIONES PORTADA */
         .gradient-text-anim {
             background: linear-gradient(to right, #FFFFFF 20%, #DFD6B5 40%, #DFD6B5 60%, #FFFFFF 80%);
             background-size: 200% auto;
-            color: #FFFFFF; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            color: #FFFFFF; 
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             animation: shine 4s linear infinite;
         }
         @keyframes shine { to { background-position: 200% center; } }
+
         .glow-backdrop {
-            position: absolute; width: 400px; height: 200px; background: radial-gradient(circle, rgba(82, 65, 176, 0.5) 0%, rgba(0,0,0,0) 70%);
-            top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; filter: blur(60px); animation: pulse-glow 3s infinite ease-in-out;
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(82, 65, 176, 0.5) 0%, rgba(0,0,0,0) 70%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1;
+            filter: blur(60px); animation: pulse-glow 3s infinite ease-in-out;
         }
         @keyframes pulse-glow {
             0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
             50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
         }
+
         .animated-line {
-            width: 0; height: 4px; background: var(--grad-main); margin: 20px 0 30px 0;
+            width: 0; height: 4px; background: var(--grad-main);
+            margin: 20px 0 30px 0;
             animation: line-grow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 1s;
         }
         @keyframes line-grow { to { width: 100px; } }
 
-        /* --- ANIMACIÓN: VASO PINCHADO (Diapositiva 4) --- */
-        .leaking-glass-container { position: relative; width: 220px; height: 300px; }
-        .glass-cup {
-            position: absolute; bottom: 50px; left: 50px; width: 120px; height: 160px;
-            border: 5px solid rgba(255,255,255,0.2); border-top: none; border-radius: 0 0 25px 25px; background: rgba(255,255,255,0.02); overflow: hidden;
-        }
-        .water-inside { position: absolute; bottom: 0; left: 0; width: 100%; height: 80%; background: var(--water-blue); opacity: 0.6; animation: slosh 3s infinite ease-in-out; }
-        .filling-stream { position: absolute; top: 0; left: 105px; width: 10px; height: 100px; background: var(--water-blue); border-radius: 0 0 5px 5px; }
-        .leak-stream { position: absolute; bottom: 45px; width: 8px; height: 80px; background: var(--water-blue); border-radius: 5px; z-index: 4; }
-        .leak-1 { left: 75px; transform: rotate(10deg); animation: leak-fall 0.7s infinite linear; }
-        .leak-2 { right: 75px; transform: rotate(-10deg); animation: leak-fall 0.8s infinite linear 0.2s; }
-        .leak-3 { left: 106px; bottom: 40px; height: 90px; animation: leak-fall 0.6s infinite linear 0.4s; }
-        @keyframes leak-fall { 0% { transform: translateY(0) scaleY(1); opacity: 0.8; } 100% { transform: translateY(100px) scaleY(0.2); opacity: 0; } }
-         @keyframes slosh { 0%, 100% { transform: skewY(0deg); } 50% { transform: skewY(2deg); } }
-
-        /* --- NUEVO CSS PARA CIERRE ABSTRACTO --- */
-        .final-slide-container {
-            display: flex; align-items: center; justify-content: space-between; width: 100%;
-        }
-        .final-text-col { flex: 1; }
-        .final-visual-col { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
-        
-        .core-orb-container { position: relative; width: 300px; height: 300px; display: flex; justify-content: center; align-items: center; }
-        
-        /* Círculo central brillante */
-        .core-orb {
-            width: 150px; height: 150px; border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #fff, var(--water-blue), var(--accent-violet));
-            box-shadow: 0 0 60px rgba(82, 65, 176, 0.6), inset 0 0 20px rgba(255,255,255,0.5);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 10; animation: float-orb 4s infinite ease-in-out;
-        }
-        
-        /* Anillos orbitando */
-        .orbit-ring {
-            position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-        }
-        .ring-1 { width: 220px; height: 220px; border-color: rgba(96, 165, 250, 0.3); animation: spin-right 10s linear infinite; }
-        .ring-2 { width: 280px; height: 280px; border-color: rgba(223, 214, 181, 0.2); animation: spin-left 15s linear infinite; }
-        .ring-dot { position: absolute; top: 0; left: 50%; width: 8px; height: 8px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; }
-
-        @keyframes float-orb { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        @keyframes spin-right { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
-        @keyframes spin-left { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(-360deg); } }
+        .tracking-in { animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both; animation-delay: 0.5s; }
+        @keyframes tracking-in-expand { 0% { letter-spacing: -0.5em; opacity: 0; } 40% { opacity: 0.6; } 100% { opacity: 1; } }
 
     </style>
 </head>
@@ -351,17 +290,17 @@
         <div class="slide active">
             <div class="content-wrapper">
                 <div class="glow-backdrop"></div>
-                <p class="animate-up" style="color: var(--accent-gold); letter-spacing: 3px; font-size: 16px; text-transform: uppercase; font-weight: 700; margin-bottom: 5px;">
-                    Estrategia de crecimiento
+                <p class="tracking-in" style="color: var(--accent-gold); letter-spacing: 3px; font-size: 18px; text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">
+                    Estrategia de Crecimiento
                 </p>
-                <h1 class="animate-up delay-1" style="font-size: 160px; font-weight: 800; color: #FFFFFF; margin: 0; line-height: 0.9; letter-spacing: -4px; text-transform: uppercase; text-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.2);">
-                    YAKÚ
+                <h1 class="gradient-text-anim animate-up delay-1" style="font-size: 120px; font-weight: 800; line-height: 1; margin: 0; letter-spacing: -2px;">
+                    Yakú
                 </h1>
                 <div class="animated-line"></div>
-                <div class="animate-up delay-2" style="border-left: 4px solid var(--accent-magenta); padding-left: 30px; margin-top: 25px;">
-                    <p style="font-size: 32px; color: var(--text-light); line-height: 1.3; font-weight: 300;">
+                <div class="animate-up delay-2" style="border-left: 4px solid var(--accent-magenta); padding-left: 30px; margin-top: 30px;">
+                    <p style="font-size: 32px; color: #FFF; line-height: 1.4;">
                         Tecnología para conectar <br>
-                        <strong style="color: var(--accent-gold); font-size: 44px; font-weight: 700;">1000 equipos</strong> con <strong style="color: var(--accent-gold); font-size: 44px; font-weight: 700;">1000 personas</strong>
+                        <strong style="color: var(--accent-gold); font-size: 40px;">1000 Equipos</strong> con <strong style="color: var(--accent-gold); font-size: 40px;">1000 Clientes</strong>.
                     </p>
                 </div>
             </div>
@@ -404,14 +343,38 @@
                 <p class="animate-up delay-1" style="margin-bottom: 20px;">Actualmente Yakú invierte <strong>~$1933 USD</strong> mensuales sin dirección clara.</p>
                 <table class="animate-up delay-2">
                     <thead>
-                        <tr><th>Concepto</th><th>Inversión Actual</th><th>Resultado</th></tr>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Inversión Actual</th>
+                            <th>Resultado</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Agencia AYB</td><td class="metric-red">$800 USD</td><td>Parcial. Sin reportes claros.</td></tr>
-                        <tr><td>Google/Meta Ads</td><td class="metric-red">$500 USD</td><td><strong>Nulo.</strong> Sin pixel de rastreo.</td></tr>
-                        <tr><td>Bot Aurora</td><td class="metric-neutral">$400 USD</td><td>Proyectado (Costo externo).</td></tr>
-                        <tr><td>Radio</td><td class="metric-neutral">$233 USD</td><td>Branding (No medible).</td></tr>
-                        <tr style="background: rgba(255,255,255,0.1);"><td><strong>TOTAL GASTO</strong></td><td style="font-size: 20px; font-weight: 800;">$1933 USD</td><td>Baja eficiencia.</td></tr>
+                        <tr>
+                            <td>Agencia AYB</td>
+                            <td class="metric-red">$800 USD</td>
+                            <td>Parcial. Sin reportes claros.</td>
+                        </tr>
+                        <tr>
+                            <td>Google/Meta Ads</td>
+                            <td class="metric-red">$500 USD</td>
+                            <td><strong>Nulo.</strong> Sin pixel de rastreo.</td>
+                        </tr>
+                        <tr>
+                            <td>Bot Aurora</td>
+                            <td class="metric-neutral">$400 USD</td>
+                            <td>Proyectado (Costo externo).</td>
+                        </tr>
+                        <tr>
+                            <td>Radio</td>
+                            <td class="metric-neutral">$233 USD</td>
+                            <td>Branding (No medible).</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.1);">
+                            <td><strong>TOTAL GASTO</strong></td>
+                            <td style="font-size: 20px; font-weight: 800;">$1933 USD</td>
+                            <td>Baja eficiencia.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -420,18 +383,23 @@
         <div class="slide">
             <div class="content-wrapper">
                 <h2 class="slide-title animate-up" style="color: var(--alert-red); -webkit-text-fill-color: var(--alert-red);">El Error Crítico</h2>
-                <h3 class="animate-up delay-1" style="color: var(--text-light); margin-bottom: 25px; display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-triangle-exclamation fa-beat" style="color: var(--alert-red);"></i> Detectamos estos errores:</h3>
                 <div class="grid-2">
-                    <div class="glass-card animate-up delay-2" style="border: 3px solid var(--alert-red);">
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 25px; font-size: 22px; display: flex; gap: 15px; align-items: flex-start;"><i class="fa-solid fa-circle-xmark" style="color: var(--alert-red); margin-top: 5px; font-size: 24px;"></i><span>Los anuncios de Meta parecen estar haciéndose de forma <strong style="color:var(--alert-red);">no profesional</strong>.</span></li>
-                            <li style="margin-bottom: 25px; font-size: 22px; display: flex; gap: 15px; align-items: flex-start;"><i class="fa-solid fa-circle-xmark" style="color: var(--alert-red); margin-top: 5px; font-size: 24px;"></i><span>No existe etiqueta de seguimiento ni pixel en la página web: <strong style="color:var(--alert-red);">se pierden datos</strong>.</span></li>
-                            <li style="margin-bottom: 25px; font-size: 22px; display: flex; gap: 15px; align-items: flex-start;"><i class="fa-solid fa-circle-xmark" style="color: var(--alert-red); margin-top: 5px; font-size: 24px;"></i><span>No existen informes que puedan evaluar la inversión que Yakú está realizando.</span></li>
-                            <li style="font-size: 22px; display: flex; gap: 15px; align-items: flex-start;"><i class="fa-solid fa-circle-xmark" style="color: var(--alert-red); margin-top: 5px; font-size: 24px;"></i><span>Al hacer la búsqueda en Google, repetidas veces, con distintas palabras claves, Yakú no ha aparecido nunca en los <strong style="color:var(--alert-red);">resultados patrocinados</strong>.</span></li>
-                        </ul>
+                    <div class="animate-up delay-1">
+                        <p style="font-size: 24px; margin-bottom: 20px;">
+                            Detectamos que el 60% del presupuesto de anuncios (Google Ads) se está desperdiciando.
+                        </p>
+                        <div class="glass-card" style="border: 2px solid var(--alert-red);">
+                            <h3 style="color: var(--alert-red); margin-bottom: 15px;"><i class="fa-solid fa-triangle-exclamation"></i> Sin Pixel ni Etiquetas</h3>
+                            <p>
+                                Yakú no tiene instalados los códigos de seguimiento en su web.
+                            </p>
+                            <p style="margin-top: 15px; font-size: 18px; opacity: 0.8;">
+                                <strong>Consecuencia:</strong> Los algoritmos de Meta y Google están "ciegos". No saben quién compra, por lo tanto, no pueden buscar clientes similares.
+                            </p>
+                        </div>
                     </div>
-                    <div class="animate-up delay-3" style="display:flex; justify-content:center; align-items:center;">
-                        <div class="leaking-glass-container"><div class="filling-stream"></div><div class="glass-cup"><div class="water-inside"></div></div><div class="leak-stream leak-1"></div><div class="leak-stream leak-2"></div><div class="leak-stream leak-3"></div></div>
+                    <div class="animate-up delay-2" style="display:flex; justify-content:center; align-items:center;">
+                        <i class="fa-solid fa-bug" style="font-size: 150px; color: rgba(190, 110, 116, 0.2);"></i>
                     </div>
                 </div>
             </div>
@@ -442,21 +410,19 @@
                 <h2 class="slide-title animate-up">La Solución: Centralización</h2>
                 <div class="grid-2">
                     <div class="glass-card animate-up delay-1">
-                        <h3 style="color: var(--alert-red); margin-bottom: 20px; text-transform: uppercase;">Fragmentación (Hoy)</h3>
+                        <h3 style="color: var(--alert-red); margin-bottom: 20px;">Fragmentación (Hoy)</h3>
                         <ul style="list-style: none;">
                             <li style="margin-bottom: 10px;"><i class="fa-solid fa-xmark" style="color:var(--alert-red);"></i> Múltiples proveedores.</li>
                             <li style="margin-bottom: 10px;"><i class="fa-solid fa-xmark" style="color:var(--alert-red);"></i> Responsabilidad diluida.</li>
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-xmark" style="color:var(--alert-red);"></i> Sin datos.</li>
-                            <li><i class="fa-solid fa-xmark" style="color:var(--alert-red);"></i> Resultados inciertos.</li>
+                            <li><i class="fa-solid fa-xmark" style="color:var(--alert-red);"></i> Sin datos unificados.</li>
                         </ul>
                     </div>
                     <div class="glass-card animate-up delay-2" style="border-top: 4px solid var(--accent-violet);">
-                        <h3 style="color: var(--accent-violet); margin-bottom: 20px; text-transform: uppercase;">Ecosistema bi.lab</h3>
+                        <h3 style="color: var(--accent-violet); margin-bottom: 20px;">Ecosistema bi.lab</h3>
                         <ul style="list-style: none;">
                             <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color:var(--accent-violet);"></i> <strong>Proveedor Único Responsable.</strong></li>
                             <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color:var(--accent-violet);"></i> Consultas con intención de venta diaria.</li>
-                            <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color:var(--accent-violet);"></i> Reporte en tiempo real, siempre disponible.</li>
-                            <li><i class="fa-solid fa-check" style="color:var(--accent-violet);"></i> Información y explicación con datos de resultados obtenidos.</li>
+                            <li><i class="fa-solid fa-check" style="color:var(--accent-violet);"></i> Instalación técnica profesional (Pixels/API).</li>
                         </ul>
                     </div>
                 </div>
@@ -486,29 +452,55 @@
 
         <div class="slide">
             <div class="content-wrapper">
-                <h2 class="slide-title animate-up">Tableros que te permiten tener el control</h2>
+                <h2 class="slide-title animate-up">Transparencia Absoluta</h2>
                 <div class="grid-2">
                     <div class="animate-up delay-1">
-                        <p style="margin-bottom: 25px; font-size: 22px;">El reporte permanente es una herramienta que ponemos a disposición de nuestros clientes para que sepan qué pasa con su inversión, en todo momento.</p>
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 15px; font-size: 18px;"><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Reporte en línea</li>
-                            <li style="margin-bottom: 15px; font-size: 18px;"><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Datos en tiempo real</li>
-                            <li style="margin-bottom: 15px; font-size: 18px;"><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Métricas claves que podés entender</li>
-                            <li style="margin-bottom: 15px; font-size: 18px; border-left: 3px solid var(--accent-violet); padding-left: 15px; background: rgba(82, 65, 176, 0.1); padding: 10px; border-radius: 0 10px 10px 0;"><strong>Cuánto invertí. Cuánta gente me habló. Cuántos equipos vendí.</strong></li>
-                        </ul>
+                        <p style="margin-bottom: 25px; font-size: 24px;">
+                            Olvídate de esperar a fin de mes para recibir un PDF que nadie entiende.
+                        </p>
+                        <p style="margin-bottom: 15px;">
+                            <i class="fa-solid fa-check" style="color: var(--accent-gold);"></i> <strong>Reporte en línea:</strong> Acceso 24/7 a tus números.
+                        </p>
+                        <p style="margin-bottom: 15px;">
+                            <i class="fa-solid fa-check" style="color: var(--accent-gold);"></i> <strong>Tiempo Real:</strong> Conectado directamente a la API de anuncios.
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-check" style="color: var(--accent-gold);"></i> <strong>Datos Claros:</strong> Cuánto invertiste y cuántas ventas generaste.
+                        </p>
                     </div>
+                    
                     <div class="dashboard-mockup animate-up delay-2">
-                        <div class="dash-sidebar"><div class="dash-icon active"><i class="fa-solid fa-chart-pie"></i></div><div class="dash-icon"><i class="fa-solid fa-users"></i></div><div class="dash-icon"><i class="fa-solid fa-sack-dollar"></i></div></div>
-                        <div class="dash-content">
-                            <div class="dash-header"><span style="font-weight: 700; font-size: 14px; color: white;">bi.lab Analytics | Yakú</span><div class="user-profile"><div class="user-dot"></div> <span style="font-size: 10px; color: #aaa;">EN VIVO</span></div></div>
-                            <div class="dash-grid-3">
-                                <div class="dash-card"><div class="d-title">Gasto / Inversión</div><div class="d-value">$1200</div><div class="d-sub"><i class="fa-solid fa-arrow-trend-up"></i> Invertido</div></div>
-                                <div class="dash-card"><div class="d-title">Gente que habló</div><div class="d-value">142</div><div class="d-sub" style="color: var(--water-blue);"><i class="fa-solid fa-comments"></i> Conversaciones</div></div>
-                                <div class="dash-card highlight"><div class="d-title" style="color: var(--accent-gold);">Equipos Vendidos</div><div class="d-value">28</div><div class="d-sub" style="color: white;"><i class="fa-solid fa-check-circle"></i> Ventas cerradas</div></div>
+                        <div class="dash-header">
+                            <span style="font-family:'Archivo'; font-weight:700; color:#fff;">bi.lab Analytics | Yakú</span>
+                            <div class="dash-status">
+                                <div class="pulsating-circle"></div> CONECTADO
                             </div>
-                            <div class="dash-chart-area"><div class="d-bar" style="height: 30%"></div><div class="d-bar" style="height: 50%"></div><div class="d-bar" style="height: 40%"></div><div class="d-bar" style="height: 70%"></div><div class="d-bar" style="height: 60%"></div><div class="d-bar active" style="height: 90%"></div><div class="d-bar" style="height: 65%"></div></div>
-                            <div class="activity-list"><div class="activity-item"><span>Venta Cerrada (Sta Fe)</span><span class="tag-sale">+$120.000</span></div><div class="activity-item"><span>Consulta (Rosario)</span><span class="tag-lead">Nuevo Lead</span></div></div>
                         </div>
+                        <div class="dash-grid">
+                            <div class="dash-metric">
+                                <div class="metric-title">Inversión</div>
+                                <div class="metric-value">$680</div>
+                            </div>
+                            <div class="dash-metric">
+                                <div class="metric-title">Leads</div>
+                                <div class="metric-value">142</div>
+                            </div>
+                            <div class="dash-metric">
+                                <div class="metric-title">CPA</div>
+                                <div class="metric-value" style="color:#50fa7b;">$4.7</div>
+                            </div>
+                        </div>
+                        <div class="dash-chart">
+                            <div class="chart-bar" style="height: 30%"></div>
+                            <div class="chart-bar" style="height: 45%"></div>
+                            <div class="chart-bar" style="height: 35%"></div>
+                            <div class="chart-bar" style="height: 60%"></div>
+                            <div class="chart-bar" style="height: 50%"></div>
+                            <div class="chart-bar" style="height: 75%"></div>
+                            <div class="chart-bar" style="height: 65%"></div>
+                            <div class="chart-bar" style="height: 90%"></div>
+                        </div>
+                        <p style="font-size: 10px; margin-top: 10px; opacity: 0.5; text-align: center;">*Datos simulados de visualización</p>
                     </div>
                 </div>
             </div>
@@ -516,18 +508,17 @@
 
         <div class="slide">
             <div class="content-wrapper">
-                <h2 class="slide-title animate-up">Tus datos valen</h2>
-                <p class="animate-up delay-1" style="margin-bottom: 30px; font-size: 22px;">Usamos IA para que puedas sacarle el máximo rendimiento económico a tu información.</p>
+                <h2 class="slide-title animate-up">Tecnología & IA</h2>
                 <div class="grid-2">
-                    <div class="glass-card card-anim ca-delay-1">
+                    <div class="glass-card animate-up delay-1">
                         <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                        <h3 style="color:var(--accent-gold); margin-bottom: 15px;">IA Conversacional (Bot bi.lab)</h3>
-                        <p>No es un simple contestador. Es un agente de ventas activo 24/7 que pre-califica, detecta intención de compra real y nutre tu CRM automáticamente mientras dormís.</p>
+                        <h3 style="color:var(--accent-gold);">Bot bi.lab</h3>
+                        <p>Atención 24/7. Nuestra IA pre-califica al cliente: ¿Qué necesita? ¿De dónde es? Solo pasamos al humano el cierre de la venta.</p>
                     </div>
-                    <div class="glass-card card-anim ca-delay-2">
+                    <div class="glass-card animate-up delay-2">
                         <div class="icon-box"><i class="fa-solid fa-database"></i></div>
-                        <h3 style="color:var(--accent-gold); margin-bottom: 15px;">Tu Activo Digital Propio</h3>
-                        <p>Dejá de "alquilar" audiencias a Meta. Construimos una base de datos estructurada y propia (First-Party Data) para realizar remarketing gratuito y aumentar el valor de tu empresa.</p>
+                        <h3 style="color:var(--accent-gold);">Base de Datos Propia</h3>
+                        <p>Construimos tu activo más valioso. Arquitectura de datos escalable para no depender siempre de la publicidad paga.</p>
                     </div>
                 </div>
             </div>
@@ -549,14 +540,15 @@
                         </table>
                         <p style="margin-top: 10px; font-size: 14px;">*Resultados estancados.</p>
                     </div>
+
                     <div class="glass-card animate-up delay-2" style="border-top: 4px solid var(--accent-gold);">
                         <h3 style="color: var(--accent-gold); margin-bottom: 20px; font-size: 22px;">Modelo bi.lab (Eficiente)</h3>
                         <table style="font-size: 16px;">
-                            <tr><td>Honorarios bi.lab</td><td style="color:#fff;">$1200</td></tr>
+                            <tr><td>Honorarios bi.lab</td><td style="color:#fff;">$1000</td></tr>
                             <tr><td>Ads (Optimizados)</td><td style="color:#fff;">$700</td></tr>
                             <tr><td>Tecnología IA</td><td class="metric-green">INCLUIDO</td></tr>
                             <tr><td>Dashboard/Data</td><td class="metric-green">INCLUIDO</td></tr>
-                            <tr><td style="font-weight:bold;">INVERSIÓN</td><td style="font-weight:bold; color:var(--accent-gold);">$1900 USD</td></tr>
+                            <tr><td style="font-weight:bold;">INVERSIÓN</td><td style="font-weight:bold; color:var(--accent-gold);">$1700 USD</td></tr>
                         </table>
                         <p style="margin-top: 10px; font-size: 14px;">*Ahorras dinero y ganas tecnología.</p>
                     </div>
@@ -566,36 +558,93 @@
 
         <div class="slide">
             <div class="content-wrapper">
-                <h2 class="slide-title animate-up">El Objetivo: +30%</h2>
-                <p class="animate-up delay-1">Proyección de ventas netas a 4 meses.</p>
-                <div class="growth-chart animate-up delay-2">
-                    <div class="g-bar bar-current bar-anim" data-height="60%" data-label="Hoy"><span>50-60</span></div>
-                    <div class="g-bar bar-anim" data-height="70%" data-label="Mes 2"><span>65</span></div>
-                    <div class="g-bar bar-anim" data-height="85%" data-label="Mes 3"><span>75</span></div>
-                    <div class="g-bar bar-anim" data-height="100%" data-label="Mes 4"><span>80+</span></div>
+                <h2 class="slide-title animate-up">Generación de Contenidos</h2>
+                <div class="grid-2">
+                    <div class="animate-up delay-1">
+                        <p style="margin-bottom: 20px;">¿Cómo pensamos el contenido en bi.lab?</p>
+                        <p style="font-size: 24px; color: #fff; margin-bottom: 30px;">
+                            En función de los objetivos comerciales: <br>
+                            <span style="color: var(--accent-gold);">La colocación de 1000 nuevos equipos.</span>
+                        </p>
+                        
+                        <div class="glass-card" style="padding: 20px; border-left: 4px solid var(--accent-violet);">
+                            <p style="font-size: 18px;">
+                                <strong>Metodología Inteligente:</strong><br>
+                                No producimos por producir. Si el contenido funciona, se mantiene. Si se agota, generamos nuevo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card animate-up delay-2">
+                        <div class="icon-box" style="margin-bottom: 20px;"><i class="fa-solid fa-clapperboard"></i></div>
+                        <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Costos de Producción</h3>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color:var(--accent-violet); margin-right: 10px;"></i> <strong>Edición:</strong> Incluida en honorarios mensuales.</li>
+                            <li style="margin-bottom: 15px;"><i class="fa-solid fa-camera" style="color:var(--accent-violet); margin-right: 10px;"></i> <strong>Rodaje (Producción):</strong> $200 USD por jornada.</li>
+                        </ul>
+                        <p style="font-size: 14px; opacity: 0.7; margin-top: 20px;">
+                            *En una sola jornada producimos material para cubrir varios meses de campaña.
+                        </p>
+                    </div>
                 </div>
-                <div style="text-align: center; margin-top: 30px;" class="animate-up delay-3"><p>Colocación sistemática de los 1000 equipos.</p></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-wrapper" style="text-align: center; align-items: center;">
+                <div class="animate-up" style="margin-bottom: 30px;">
+                    <i class="fa-solid fa-gift" style="font-size: 80px; color: var(--accent-magenta);"></i>
+                </div>
+                <h2 class="slide-title animate-up delay-1" style="font-size: 60px;">Beneficio Exclusivo Yakú</h2>
+                
+                <div class="glass-card animate-up delay-2" style="max-width: 900px; border: 2px solid var(--accent-gold); background: rgba(223, 214, 181, 0.1);">
+                    <p style="font-size: 32px; color: #fff; margin-bottom: 20px;">
+                        Bonificamos la primera generación de contenidos al 100%.
+                    </p>
+                    <p style="font-size: 22px; color: var(--text-light);">
+                        Generaremos la primera tanda de anuncios audiovisuales de alta conversión <strong>sin costo de producción</strong> para comenzar con el pie derecho.
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="slide">
             <div class="content-wrapper">
-                <div class="final-slide-container">
-                    <div class="final-text-col animate-up">
-                        <h2 style="font-size: 80px; font-weight: 800; color: #FFF; margin: 0; line-height: 1;">¿AVANZAMOS?</h2>
-                        <div style="width: 80px; height: 5px; background: var(--accent-gold); margin-top: 20px;"></div>
+                <h2 class="slide-title animate-up">El Objetivo: +30%</h2>
+                <p class="animate-up delay-1">Proyección de ventas netas a 4 meses.</p>
+                
+                <div class="growth-chart animate-up delay-2">
+                    <div class="g-bar bar-current bar-anim" data-height="60%" data-label="Hoy">
+                        <span>50-60</span>
                     </div>
-                    
-                    <div class="final-visual-col animate-up delay-1">
-                        <div class="core-orb-container">
-                            <div class="orbit-ring ring-1"><div class="ring-dot"></div></div>
-                            <div class="orbit-ring ring-2"><div class="ring-dot"></div></div>
-                            
-                            <div class="core-orb">
-                                <img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" alt="Yakú" style="width: 80px;">
-                            </div>
-                        </div>
+                    <div class="g-bar bar-anim" data-height="70%" data-label="Mes 2">
+                        <span>65</span>
                     </div>
+                    <div class="g-bar bar-anim" data-height="85%" data-label="Mes 3">
+                        <span>75</span>
+                    </div>
+                    <div class="g-bar bar-anim" data-height="100%" data-label="Mes 4">
+                        <span>80+</span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;" class="animate-up delay-3">
+                    <p>Colocación sistemática de los 1000 equipos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-wrapper" style="align-items: center; text-align: center;">
+                <h2 class="animate-up" style="font-size: 60px; margin-bottom: 20px; color: #FFF;">¿Empezamos?</h2>
+                <div class="animate-up delay-1">
+                    <p style="font-size: 24px; margin-bottom: 10px;">Inversión Profesional Mensual</p>
+                    <p style="font-size: 50px; font-weight: 800; color: var(--accent-gold); margin-bottom: 40px;">$1000 USD</p>
+                </div>
+                <div class="animate-up delay-2" style="display: flex; gap: 40px; justify-content: center; align-items: center; margin-top: 20px;">
+                    <img src="https://wearebilab.com/img/logo.svg" height="50" alt="bi.lab">
+                    <span style="font-size: 30px; color: rgba(255,255,255,0.2);">+</span>
+                    <img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" height="50" alt="Yakú">
                 </div>
             </div>
         </div>
@@ -634,22 +683,25 @@
             slides.forEach(slide => {
                 slide.classList.remove('active');
                 const bars = slide.querySelectorAll('.bar-anim');
-                const dashBars = slide.querySelectorAll('.d-bar'); 
-                bars.forEach(bar => { bar.style.transform = 'scaleY(0)'; bar.style.opacity = '0'; });
-                dashBars.forEach(db => { db.style.height = '10%'; });
+                bars.forEach(bar => { 
+                    bar.style.transform = 'scaleY(0)'; 
+                    bar.style.opacity = '0';
+                });
             });
 
             slides[currentSlide].classList.add('active');
 
             const activeBars = slides[currentSlide].querySelectorAll('.bar-anim');
             if(activeBars.length > 0) {
-                setTimeout(() => { activeBars.forEach((bar, i) => { setTimeout(() => { bar.style.height = bar.getAttribute('data-height'); bar.style.transform = 'scaleY(1)'; bar.style.opacity = '1'; }, i * 200); }); }, 500);
-            }
-
-            const activeDashBars = slides[currentSlide].querySelectorAll('.d-bar');
-            if(activeDashBars.length > 0) {
-                const heights = ['30%','50%','40%','70%','60%','90%','65%'];
-                setTimeout(() => { activeDashBars.forEach((bar, i) => { setTimeout(() => { bar.style.height = heights[i]; }, i * 100); }); }, 500);
+                setTimeout(() => {
+                    activeBars.forEach((bar, i) => {
+                        setTimeout(() => {
+                            bar.style.height = bar.getAttribute('data-height');
+                            bar.style.transform = 'scaleY(1)';
+                            bar.style.opacity = '1';
+                        }, i * 200);
+                    });
+                }, 500);
             }
         }
 
